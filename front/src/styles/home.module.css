@@ -19,10 +19,13 @@
     border-radius: 8px;
     padding: 3px;
     color: black;
+    transition: .2s;
 }
 
 .link:hover {
-    
+    background-color: gray;
+    transition: .2s;
+
 }
 
 .title {

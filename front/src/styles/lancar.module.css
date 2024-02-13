@@ -1,0 +1,45 @@
+.background {
+    background-color: green;
+    height: 100vh;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 80%;
+}
+
+.tabela {
+    width: 100vw;
+}
+
+.divInput {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    margin-left: 10px;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.btn {
+    padding: 10px;
+    width: 15%;
+    margin-top: 10px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+}
+
+.divSeparacao {
+    margin: 10%;
+    
+}

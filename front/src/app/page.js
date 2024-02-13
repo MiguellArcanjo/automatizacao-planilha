@@ -10,7 +10,7 @@ export default function Home() {
         <h1 className={style.title}>O que gostaria de fazer?</h1>
 
         <div>
-          <Link href="www.google.com" className={style.link}>Lançar proposta</Link>
+          <Link href="lancar" className={style.link}>Lançar proposta</Link>
           <Link href="www.google.com" className={style.link}>Consultar proposta</Link>
         </div>
       </section>
