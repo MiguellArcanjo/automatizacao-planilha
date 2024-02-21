@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import style from "@/src/styles/lancar.module.css";
+import Link from 'next/link'
 import "@/src/styles/global.css";
 
 export default function LancarProposta() {
@@ -13,15 +14,11 @@ export default function LancarProposta() {
         valorParcela: '',
         numeroProposta: '',
         dataPagamento: '',
-        inss: false,
-        rl: false,
-        vd: false
     })
 
     const handleInputChange = (e) => {
         const {name, value, type, checked} = e.target;
-        const inputValue = type === 'checkbox' ? !formData.inss || !formData.rl || !formData.vd : value;
-        // const inputValue2 = type === 'checkbox' ? !formData.rl : value;
+        const inputValue = type === 'checkbox' ? !formData.rl : value;
         setFormData({...formData, [name]: inputValue})
     }
 
@@ -44,7 +41,7 @@ export default function LancarProposta() {
                 <tbody>
                     <tr>
                         <td>{formData.dataProposta}</td>
-                        <td>{formData.nomeCliente} {formData.inss && 'INSS'} {formData.rl && 'RL'} {formData.vd && 'VD'}</td>
+                        <td>{formData.nomeCliente}</td>
                         <td>{formData.cpfCliente}</td>
                         <td>{formData.valorLiberado}</td>
                         <td>{formData.quantidadeParcelas}</td>
@@ -103,26 +100,11 @@ export default function LancarProposta() {
                         <label htmlFor="">data do pagamento: </label>
                         <input type="date" name="dataPagamento" className={style.input} onChange={handleInputChange}/>
                     </div>
+
+                    <button type='submite' className={style.btn}>Cadastrar</button>
+                    <Link href="/" className={style.btnLink}>Voltar</Link>
                 </div>
 
-                <div className={style.divSeparacao}>
-                    <div className={style.divInput}>
-                        <label htmlFor="">inss: </label>
-                        <input type="checkbox" name="inss" checked={formData.inss} onChange={handleInputChange} />
-                    </div>
-
-                    <div className={style.divInput}>
-                        <label htmlFor="">RL: </label>
-                        <input type="checkbox" name="rl" checked={formData.rl} onChange={handleInputChange} />
-                    </div>
-
-                    <div className={style.divInput}>
-                        <label htmlFor="">VD: </label>
-                        <input type="checkbox" name="vd" checked={formData.vd} onChange={handleInputChange} />
-                    </div>
-                </div>
-
-                {/* <button type='submite' className={style.btn}>Cadastrar</button> */}
 
             </form>
         </main>
