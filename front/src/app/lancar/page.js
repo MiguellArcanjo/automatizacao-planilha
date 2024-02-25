@@ -43,6 +43,7 @@ export default function LancarProposta() {
     const [valorDaParcela, setValorDaParcela] = useState('R$: ');
     const [numeroDaProposta, setNumeroDaProposta] = useState('');
     const [dataDoPagamento, setDataDoPagemento] = useState('');
+    const [nomeDoParceiro, setNomeDoParceiro] = useState('');
 
 
     const [formData, setFormData] = useState({
@@ -54,6 +55,7 @@ export default function LancarProposta() {
         valorParcela: '',
         numeroProposta: '',
         dataPagamento: '',
+        nomeDoParceiro: ''
     })
 
     const handleInputChange = (e) => {
@@ -84,6 +86,7 @@ export default function LancarProposta() {
             valorDaParcela: valorDaParcela,
             numeroDaProposta: numeroDaProposta,
             dataDoPagamento: dataDoPagamento,
+            nomeDoParceiro: nomeDoParceiro
         }
 
         apiService.post(url, data)
@@ -108,6 +111,7 @@ export default function LancarProposta() {
                         <th>VALOR DA PARCELA</th>
                         <th>NÚMERO DA PROPOSTA</th>
                         <th>DATA DO PAGAMENTO</th>
+                        <th>NOME DO PARCEIRO</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -120,6 +124,7 @@ export default function LancarProposta() {
                         <td>{formData.valorParcela}</td>
                         <td>{formData.numeroProposta}</td>
                         <td>{formData.dataPagamento}</td>
+                        <td>{formData.nomeDoParceiro}</td>
                     </tr>
                 </tbody>
             </table>
@@ -265,6 +270,24 @@ export default function LancarProposta() {
                                 }
                             }} 
                             value={dataDoPagamento}
+                        />
+                    </div>
+
+                    <div className={style.divInput}>
+                        <label htmlFor="">nome do parceiro: </label>
+                        <input 
+                            type="text" 
+                            name="nomeDoParceiro" 
+                            className={style.input} 
+                            onChange={(e) => {
+                                if (e && e.target) {
+                                    const { name, value } = e.target;
+                                    handleInputChange(e); // Chame handleInputChange com o evento
+                                    setNomeDoParceiro(value);
+                                    
+                                }
+                            }} 
+                            value={nomeDoParceiro}
                         />
                     </div>
 

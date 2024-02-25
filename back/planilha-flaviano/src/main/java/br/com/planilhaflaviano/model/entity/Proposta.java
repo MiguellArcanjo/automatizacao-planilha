@@ -45,4 +45,7 @@ public class Proposta {
 
     @Column(name = "dataDoPagemento")
     private LocalDate dataDoPagamento;
+
+    @Column(name = "nomeDoParceiro")
+    private String nomeDoParceiro;
 }

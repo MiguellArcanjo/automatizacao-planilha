@@ -19,4 +19,5 @@ public class PropostaDTO {
     private Integer numeroDaProposta;
     private Integer quantidadeDeParcela;
     private LocalDate dataDoPagamento;
+    private String nomeDoParceiro;
 }

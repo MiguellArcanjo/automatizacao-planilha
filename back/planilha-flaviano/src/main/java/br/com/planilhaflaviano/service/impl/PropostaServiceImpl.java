@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.PreparedStatement;
+import java.util.Optional;
 
 @Service
 public class PropostaServiceImpl implements PropostaService {
@@ -21,6 +22,12 @@ public class PropostaServiceImpl implements PropostaService {
 
 
     @Override
+    public Proposta getProposta(Long id) {
+        buscarPropostaPorId(id);
+        return repository.findById(id).get();
+    }
+
+    @Override
     public void salvarProposta(PropostaDTO dto) {
         Proposta proposta = new Proposta();
         proposta.setDataDaProposta(dto.getDataDaProposta());
@@ -31,6 +38,7 @@ public class PropostaServiceImpl implements PropostaService {
         proposta.setValorDaParcela(dto.getValorDaParcela());
         proposta.setNumeroDaProposta(dto.getNumeroDaProposta());
         proposta.setDataDoPagamento(dto.getDataDoPagamento());
+        proposta.setNomeDoParceiro(dto.getNomeDoParceiro());
 
         repository.save(proposta);
     }
@@ -43,5 +51,10 @@ public class PropostaServiceImpl implements PropostaService {
     @Override
     public void deletar(Proposta proposta) {
         repository.delete(proposta);
+    }
+
+    @Override
+    public Optional<Proposta> buscarPropostaPorId(Long id) {
+        return repository.findById(id);
     }
 }

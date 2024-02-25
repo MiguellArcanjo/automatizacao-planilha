@@ -11,7 +11,7 @@ export default function Home() {
 
         <div>
           <Link href="lancar" className={style.link}>Lançar proposta</Link>
-          <Link href="" className={style.link}>Consultar proposta</Link>
+          <Link href="consultar" className={style.link}>Consultar proposta</Link>
         </div>
       </section>
     </div>
