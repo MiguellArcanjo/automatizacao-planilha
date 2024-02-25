@@ -13,9 +13,9 @@ public class PropostaDTO {
     private Long Id;
     private LocalDate dataDaProposta;
     private String nomeDoCliente;
-    private Integer cpfDoCliente;
-    private float valorLiberado;
-    private Integer valorDaParcela;
+    private String cpfDoCliente;
+    private String valorLiberado;
+    private String valorDaParcela;
     private Integer numeroDaProposta;
     private Integer quantidadeDeParcela;
     private LocalDate dataDoPagamento;

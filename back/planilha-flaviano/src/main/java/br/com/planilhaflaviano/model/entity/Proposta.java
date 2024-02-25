@@ -29,13 +29,13 @@ public class Proposta {
     private String nomeDoCliente;
 
     @Column(name = "cpfDoCliente")
-    private Integer cpfDoCliente;
+    private String cpfDoCliente;
 
     @Column(name = "valorLiberado")
-    private float valorLiberado;
+    private String valorLiberado;
 
     @Column(name = "valorDaParcela")
-    private Integer valorDaParcela;
+    private String valorDaParcela;
 
     @Column(name = "quantidadeDeParcela")
     private Integer quantidadeDeParcela;
