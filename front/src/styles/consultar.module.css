@@ -1,0 +1,36 @@
+.thead {
+    border: 1px solid black;
+}
+
+.tabela {
+    border: none black;
+}
+
+.divTable {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    background-color: #f7ead9;
+    height: 100vh;
+}
+
+.btnVoltar {
+    background-color: #619885;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    color: white;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.btnVoltar:hover {
+    background-color: #2e423b;
+    transition: .3s;
+}

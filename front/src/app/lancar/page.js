@@ -1,10 +1,11 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from "@/src/styles/lancar.module.css";
 import Link from 'next/link'
 import "@/src/styles/global.css";
 import ApiService from '@/src/api/apiService';
-
+import styleConsultar from "@/src/styles/consultar.module.css";
+import toast, {Toaster} from "react-hot-toast";
 
 
 function mascara(e){
@@ -33,6 +34,8 @@ function mascara(e){
 }
 
 export default function LancarProposta() {
+    const notify = () => toast.success("Proposta cadastrada com sucesso!");
+    const erro = () => toast.error("Erro ao cadastrar proposta.")
     const apiUrl = 'http://localhost:8080/api'
     const apiService = new ApiService(apiUrl);
     const [dataDaProposta, setDataDaProposta] = useState('');
@@ -44,7 +47,20 @@ export default function LancarProposta() {
     const [numeroDaProposta, setNumeroDaProposta] = useState('');
     const [dataDoPagamento, setDataDoPagemento] = useState('');
     const [nomeDoParceiro, setNomeDoParceiro] = useState('');
+    const [feedback, setFeedback] = useState(null);
 
+    useEffect(() => {
+        console.log(feedback)
+        if (feedback === true) {
+            notify();
+            setTimeout(() => {
+                location.reload(true);
+                setFeedback(null)
+            }, "800")
+        } else if(feedback === false) {
+            erro();
+        }
+    }, [feedback])
 
     const [formData, setFormData] = useState({
         dataProposta: '',
@@ -92,15 +108,17 @@ export default function LancarProposta() {
         apiService.post(url, data)
         .then((response) => {
             console.log(response.data)
+            setFeedback(true)
         }).catch((error) => {
             console.log(error)
+            setFeedback(false)
         })
     }
 
   return (
     <section className={style.background}>
         <main className={style.background}>
-            <table border={1} className={style.tabela}>
+            <table border={1} className={styleConsultar.tabela}>
                 <thead>
                     <tr>
                         <th>DATA DA PROPOSTA</th>
@@ -298,6 +316,42 @@ export default function LancarProposta() {
 
             </form>
         </main>
+
+
+        <Toaster 
+                position="bottom-left"
+                toastOptions={{
+        
+                    className: '',
+                    duration: 3000,
+                    style: {
+                        background: '#008000',
+                        color: '#fff',
+                    },
+
+                    success: {
+                        duration: 3000,
+                        theme: {
+                        primary: 'green',
+                        secondary: 'black',
+                        },
+                    },
+
+                    error: {
+                        duration: 3000,
+                        style: {
+                        background: '#800000',
+                        color: '#fff',
+                        },
+                        theme: {
+                        primary: 'red',
+                        secondary: 'black',
+                        },
+                    }
+                }}
+            />
+
+
     </section>
   )
 }

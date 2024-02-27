@@ -1,5 +1,5 @@
 .background {
-    background-color: green;
+    background-color: #f7ead9;
     height: 100vh;
 }
 
@@ -40,10 +40,12 @@
     transition: .5s;
     display: flex;
     justify-content: center;
+    background-color: #619885;
+    color: white;
 }
 
 .btn:hover {
-    background: gray;
+    background: #2e423b;
     transition: .5s;
     color: white;
 }
@@ -51,7 +53,7 @@
 .btnLink {
     padding: 10px;
     width: 50%;
-    background: white;
+    background-color: #619885;
     border-radius: 7px;
     border: none;
     cursor: pointer;
@@ -61,11 +63,11 @@
     justify-content: center;
     margin-left: 90px;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .btnLink:hover {
-    background: gray;
+    background: #2e423b;
     transition: .5s;
     color: white;
 }

@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: green;
+    width: 100vw;
+    background-color: #f7ead9;
 }
 
 .div {
@@ -13,17 +14,16 @@
 
 .link {
     text-decoration: none;
-    margin: 10%;
-    background-color: white;
-    border: 1px solid;
+    margin: 8%;
+    background-color: #619885;
     border-radius: 8px;
-    padding: 3px;
-    color: black;
+    padding: 10px;
+    color: #fff;
     transition: .2s;
 }
 
 .link:hover {
-    background-color: gray;
+    background-color: #2e423b;
     transition: .2s;
 
 }
